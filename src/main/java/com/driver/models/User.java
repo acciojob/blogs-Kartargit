@@ -1,7 +1,7 @@
 package com.driver.models;
 
 import net.minidev.json.annotate.JsonIgnore;
-
+import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +16,8 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
+    @OneToMany(mappedBy = "blog",cascade = CascadeType.ALL)
+    private List<Blog> blogList = new ArrayList<>();
     public User(){
 
     }
@@ -72,7 +74,5 @@ public class User {
         return blogList;
     }
 
-    @OneToMany(mappedBy = "blog",cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Blog> blogList = new ArrayList<>();
+
 }

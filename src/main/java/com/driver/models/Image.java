@@ -1,6 +1,6 @@
 package com.driver.models;
 
-import net.minidev.json.annotate.JsonIgnore;
+
 
 import javax.persistence.*;
 
@@ -12,6 +12,9 @@ public class Image{
     private Integer imageId;
     private String description;
     private String dimension;
+    @ManyToOne
+    @JoinColumn
+    private Blog blog;
     public Image(){
 
     }
@@ -50,8 +53,5 @@ public class Image{
         return blog;
     }
 
-    @ManyToOne
-    @JoinColumn
-    @JsonIgnore
-    private Blog blog;
+
 }
