@@ -15,9 +15,7 @@ public class Image{
     @ManyToOne
     @JoinColumn
     private Blog blog;
-    public Image(){
 
-    }
     public Image(Integer id,String description,String dimension,Blog blog){
         this.imageId = id;
         this.description = description;
@@ -39,6 +37,10 @@ public class Image{
 
     public String getDimension() {
         return dimension;
+    }
+
+    public void setImageId(Integer imageId) {
+        this.imageId = imageId;
     }
 
     public Integer getImageId() {
