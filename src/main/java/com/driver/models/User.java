@@ -1,13 +1,10 @@
 package com.driver.models;
-
-import net.minidev.json.annotate.JsonIgnore;
-import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="userInfo")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,6 +35,10 @@ public class User {
         return lastName;
     }
 
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
     public Integer getUserId() {
         return this.userId;
     }
@@ -62,7 +63,7 @@ public class User {
         this.userName = userName;
     }
 
-    public String getUserName() {
+    public String getUserName(){
         return userName;
     }
 
