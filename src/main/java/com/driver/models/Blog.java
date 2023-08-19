@@ -33,6 +33,10 @@ public class Blog {
         this.content = content;
         this.publishDate = date;
         this.user = user;
+        this.imageList = imageList;
+    }
+    public Blog(){
+
     }
     public void setTitle(String title) {
         this.title = title;

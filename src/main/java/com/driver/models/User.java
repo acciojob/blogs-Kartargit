@@ -24,7 +24,9 @@ public class User {
         this.firstName = firstName;
         this.blogList = blogList;
     }
+public User(){
 
+}
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }

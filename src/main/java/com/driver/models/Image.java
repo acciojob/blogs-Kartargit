@@ -22,7 +22,9 @@ public class Image{
         this.dimension = dimension;
         this.blog = blog;
     }
+public Image(){
 
+}
     public void setDescription(String description) {
         this.description = description;
     }
