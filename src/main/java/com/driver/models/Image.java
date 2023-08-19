@@ -1,5 +1,7 @@
 package com.driver.models;
 
+import net.minidev.json.annotate.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,9 +12,14 @@ public class Image{
     private Integer imageId;
     private String description;
     private String dimension;
-    public Image(String description,String dimension){
+    public Image(){
+
+    }
+    public Image(Integer id,String description,String dimension,Blog blog){
+        this.imageId = id;
         this.description = description;
         this.dimension = dimension;
+        this.blog = blog;
     }
 
     public void setDescription(String description) {
@@ -45,5 +52,6 @@ public class Image{
 
     @ManyToOne
     @JoinColumn
+    @JsonIgnore
     private Blog blog;
 }

@@ -1,5 +1,7 @@
 package com.driver.models;
 
+import net.minidev.json.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +16,24 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
+    public User(){
 
-    public User(String userName,String password){
+    }
+    public User(Integer id,String userName,String password,String firstName,String lastName,List<Blog> blogList){
+        this.userId=id;
         this.userName = userName;
         this.password = password;
-        this.lastName = "test";
-        this.firstName = "test";
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.blogList = blogList;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public Integer getUserId() {
@@ -59,5 +73,6 @@ public class User {
     }
 
     @OneToMany(mappedBy = "blog",cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Blog> blogList = new ArrayList<>();
 }
